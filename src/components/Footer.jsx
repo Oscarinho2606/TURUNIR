@@ -10,11 +10,13 @@ export default function Footer() {
           {/* Column 1: Logo + Info */}
           <div className="footer-col">
             <div className="footer-logo">
-              <img
-                src={`${BASE}images/cropped-LOGO-TURISMO-UNIVERSAL-REPRESENTACIONES-S.A.S.-300x105.png`}
-                alt="Turismo Universal Representaciones"
-                style={{ height: '60px', width: 'auto', filter: 'brightness(0) invert(1)', opacity: 0.8 }}
-              />
+              <div style={{ background: 'rgba(255,255,255,0.92)', borderRadius: '8px', padding: '8px 14px', display: 'inline-block' }}>
+                <img
+                  src={`${BASE}images/cropped-LOGO-TURISMO-UNIVERSAL-REPRESENTACIONES-S.A.S.-300x105.png`}
+                  alt="Turismo Universal Representaciones"
+                  style={{ height: '55px', width: 'auto', display: 'block' }}
+                />
+              </div>
             </div>
             <p>Agencia de Viajes y Representaciones Colombia</p>
             <p style={{ marginTop: '8px' }}>

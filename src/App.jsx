@@ -7,6 +7,7 @@ import Nosotros from './pages/Nosotros.jsx'
 import Reservas from './pages/Reservas.jsx'
 import Sostenibilidad from './pages/Sostenibilidad.jsx'
 import Clausulas from './pages/Clausulas.jsx'
+import Destino from './pages/Destino.jsx'
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation()
@@ -40,6 +41,7 @@ function App() {
           <Route path="/reservas" element={<Reservas />} />
           <Route path="/sostenibilidad" element={<Sostenibilidad />} />
           <Route path="/clausulas" element={<Clausulas />} />
+          <Route path="/destinos/:slug" element={<Destino />} />
         </Routes>
       </main>
       <Footer />

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import Hero from '../components/Hero.jsx'
 
 const BASE = import.meta.env.BASE_URL
@@ -11,21 +12,21 @@ const services = [
 ]
 
 const destinos = [
-  { img: `${BASE}images/cruceros.png`, title: 'Cruceros', cat: 'cruceros' },
-  { img: `${BASE}images/europa-turismo-universal.png`, title: 'Europa', cat: 'europa' },
-  { img: `${BASE}images/siente-vietnam.png`, title: 'Vietnam', cat: 'exoticos' },
-  { img: `${BASE}images/siente-dubai.png`, title: 'Dubai', cat: 'exoticos' },
-  { img: `${BASE}images/siente-jordania.png`, title: 'Jordania', cat: 'exoticos' },
-  { img: `${BASE}images/siente-turquia.png`, title: 'Turquía', cat: 'exoticos' },
-  { img: `${BASE}images/siente-china.png`, title: 'China', cat: 'exoticos' },
-  { img: `${BASE}images/siente-japon.png`, title: 'Japón', cat: 'exoticos' },
-  { img: `${BASE}images/siente-india.png`, title: 'India', cat: 'exoticos' },
-  { img: `${BASE}images/siente-kenia.png`, title: 'Kenia', cat: 'exoticos' },
-  { img: `${BASE}images/siente-tailandia.png`, title: 'Tailandia', cat: 'exoticos' },
-  { img: `${BASE}images/buenos-aires-mar-de-plata.png`, title: 'Buenos Aires', cat: 'suramerica' },
-  { img: `${BASE}images/lima-aventurera-plan.png`, title: 'Lima Aventurera', cat: 'suramerica' },
-  { img: `${BASE}images/lima-experiencia-turunir.png`, title: 'Lima Experiencia', cat: 'suramerica' },
-  { img: `${BASE}images/promo-exclusica-disney.png`, title: 'Disney', cat: 'suramerica' },
+  { img: `${BASE}images/cruceros.png`, title: 'Cruceros', cat: 'cruceros', slug: 'cruceros' },
+  { img: `${BASE}images/europa-turismo-universal.png`, title: 'Europa', cat: 'europa', slug: 'europa' },
+  { img: `${BASE}images/siente-vietnam.png`, title: 'Vietnam', cat: 'exoticos', slug: 'vietnam' },
+  { img: `${BASE}images/siente-dubai.png`, title: 'Dubai', cat: 'exoticos', slug: 'dubai' },
+  { img: `${BASE}images/siente-jordania.png`, title: 'Jordania', cat: 'exoticos', slug: 'jordania' },
+  { img: `${BASE}images/siente-turquia.png`, title: 'Turquía', cat: 'exoticos', slug: 'turquia' },
+  { img: `${BASE}images/siente-china.png`, title: 'China', cat: 'exoticos', slug: 'china' },
+  { img: `${BASE}images/siente-japon.png`, title: 'Japón', cat: 'exoticos', slug: 'japon' },
+  { img: `${BASE}images/siente-india.png`, title: 'India', cat: 'exoticos', slug: 'india' },
+  { img: `${BASE}images/siente-kenia.png`, title: 'Kenia', cat: 'exoticos', slug: 'kenia' },
+  { img: `${BASE}images/siente-tailandia.png`, title: 'Tailandia', cat: 'exoticos', slug: 'tailandia' },
+  { img: `${BASE}images/buenos-aires-mar-de-plata.png`, title: 'Buenos Aires', cat: 'suramerica', slug: 'buenos-aires' },
+  { img: `${BASE}images/lima-aventurera-plan.png`, title: 'Lima Aventurera', cat: 'suramerica', slug: 'lima-aventurera' },
+  { img: `${BASE}images/lima-experiencia-turunir.png`, title: 'Lima Experiencia', cat: 'suramerica', slug: 'lima-experiencia' },
+  { img: `${BASE}images/promo-exclusica-disney.png`, title: 'Disney', cat: 'suramerica', slug: 'disney' },
 ]
 
 const filters = [
@@ -208,9 +209,9 @@ export default function Home() {
                 <img src={d.img} alt={d.title} loading="lazy" />
                 <div className="destino-overlay">
                   <h3>{d.title}</h3>
-                  <a href="/reservas" className="btn-primary" onClick={e => { e.preventDefault(); window.location.href = '/reservas' }}>
+                  <Link to={`/destinos/${d.slug}`} className="btn-primary">
                     Ver más
-                  </a>
+                  </Link>
                 </div>
               </div>
             ))}
