@@ -193,22 +193,6 @@ export default function Reservas() {
               </div>
             </div>
 
-            <div className="reservas-contacto-directo">
-              <p className="rcontacto-label">También puedes escribirnos directamente:</p>
-              <a
-                href="https://wa.me/573003748933?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20un%20viaje"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-whatsapp"
-                style={{ width: '100%', justifyContent: 'center' }}
-              >
-                <i className="fab fa-whatsapp" />
-                +57 300 374 8933
-              </a>
-              <p className="rcontacto-horario">
-                Lun–Vie: 8:00 AM – 6:00 PM &nbsp;|&nbsp; Sáb: 9:00 AM – 1:00 PM
-              </p>
-            </div>
           </div>
         </div>
       </section>
