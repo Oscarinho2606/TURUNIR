@@ -1551,6 +1551,353 @@ ul {
 }
 
 /* =============================================
+   VISAS PAGE
+   ============================================= */
+
+.visas-intro-section { background: var(--white); }
+
+.visas-intro-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.visas-intro-text p {
+  color: #555;
+  line-height: 1.9;
+  margin-bottom: 16px;
+  font-size: 15.5px;
+}
+
+.visa-card-info {
+  background: var(--dark);
+  border-radius: 14px;
+  overflow: hidden;
+  color: var(--white);
+}
+
+.visa-card-header {
+  background: var(--primary);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.visa-card-header i { font-size: 28px; }
+
+.visa-card-list {
+  list-style: none;
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.visa-card-list li {
+  padding: 8px 0;
+  font-size: 14.5px;
+  color: rgba(255,255,255,0.85);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.visa-card-list li i { color: #25D366; font-size: 13px; }
+
+.visa-card-detail {
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.visa-card-detail span {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.visa-card-detail i { color: var(--primary); }
+
+/* Servicios */
+.visas-servicios-section { background: var(--gray); }
+
+.visas-servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 40px;
+}
+
+.visas-servicio-card {
+  background: var(--white);
+  padding: 30px 24px;
+  border-radius: 10px;
+  border-top: 3px solid transparent;
+  transition: transform 0.3s, box-shadow 0.3s, border-top-color 0.3s;
+}
+
+.visas-servicio-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+  border-top-color: var(--primary);
+}
+
+.vs-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), #004f8b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.vs-icon i { font-size: 22px; color: var(--white); }
+
+.visas-servicio-card h3 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--dark);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+.visas-servicio-card p { font-size: 14px; color: #666; line-height: 1.7; }
+
+/* DS-160 */
+.visas-ds160-section {
+  background: var(--dark);
+  padding: 80px 20px;
+}
+
+.visas-ds160-inner {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.ds160-text h2 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.ds160-text p {
+  color: rgba(255,255,255,0.75);
+  line-height: 1.9;
+  margin-bottom: 16px;
+  font-size: 15px;
+}
+
+.ds160-text strong { color: var(--accent); }
+
+.ds160-highlights { display: flex; flex-direction: column; gap: 20px; }
+
+.ds160-point {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: rgba(255,255,255,0.05);
+  padding: 16px;
+  border-radius: 8px;
+  border-left: 3px solid var(--accent);
+}
+
+.ds160-point .fa-lightbulb { color: #f9c74f; }
+.ds160-point .fa-exclamation-triangle { color: var(--accent); }
+
+.ds160-point i { font-size: 20px; margin-top: 2px; flex-shrink: 0; }
+
+.ds160-point strong {
+  display: block;
+  color: var(--white);
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.ds160-point p { color: rgba(255,255,255,0.65); font-size: 13px; line-height: 1.6; margin: 0; }
+
+/* Documentos */
+.visas-docs-section { background: var(--white); }
+
+.visas-docs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 36px;
+}
+
+.visas-doc-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  background: var(--gray);
+  border-radius: 8px;
+  font-size: 14.5px;
+  color: #444;
+}
+
+.visas-doc-item i { color: var(--primary); font-size: 18px; flex-shrink: 0; }
+
+.visas-docs-note {
+  margin-top: 28px;
+  padding: 16px 20px;
+  background: #fff8e1;
+  border-left: 4px solid #f9c74f;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #555;
+  line-height: 1.7;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.visas-docs-note i { color: #f9c74f; font-size: 18px; margin-top: 2px; flex-shrink: 0; }
+
+/* Pasos */
+.visas-pasos-section { background: var(--gray); }
+
+.visas-pasos-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 40px;
+  position: relative;
+}
+
+.visas-pasos-timeline::before {
+  content: '';
+  position: absolute;
+  left: 46px;
+  top: 24px;
+  bottom: 24px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--primary), var(--accent));
+}
+
+.visas-paso {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  padding: 20px 0;
+  position: relative;
+}
+
+.vpaso-num {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 1px;
+  width: 24px;
+  flex-shrink: 0;
+  padding-top: 18px;
+}
+
+.vpaso-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 0 4px var(--gray);
+}
+
+.vpaso-icon i { color: var(--white); font-size: 18px; }
+
+.vpaso-text {
+  background: var(--white);
+  padding: 20px 24px;
+  border-radius: 10px;
+  flex: 1;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+
+.vpaso-text h3 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--dark);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.vpaso-text p { font-size: 14px; color: #666; line-height: 1.7; margin: 0; }
+
+/* CTA */
+.visas-cta-section {
+  background: linear-gradient(135deg, var(--primary) 0%, #004f8b 100%);
+  padding: 70px 20px;
+}
+
+.visas-cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.visas-cta-inner h2 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: clamp(24px, 3.5vw, 36px);
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.visas-cta-inner p {
+  color: rgba(255,255,255,0.82);
+  font-size: 15px;
+  max-width: 500px;
+  line-height: 1.7;
+}
+
+.visas-cta-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+
+@media (max-width: 900px) {
+  .visas-intro-grid,
+  .visas-ds160-inner { grid-template-columns: 1fr; }
+
+  .visas-servicios-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .visas-docs-grid { grid-template-columns: 1fr; }
+
+  .visas-cta-inner { flex-direction: column; text-align: center; }
+  .visas-cta-btns { justify-content: center; }
+
+  .visas-pasos-timeline::before { display: none; }
+}
+
+@media (max-width: 480px) {
+  .visas-servicios-grid { grid-template-columns: 1fr; }
+}
+
+/* =============================================
    WHATSAPP BUTTON
    ============================================= */
 

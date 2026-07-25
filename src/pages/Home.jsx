@@ -7,7 +7,7 @@ const BASE = import.meta.env.BASE_URL
 const services = [
   { icon: 'fas fa-ship', title: 'Cruceros', desc: 'Paquetes en crucero por el mundo' },
   { icon: 'fas fa-university', title: 'Europa', desc: 'Los mejores tours por Europa' },
-  { icon: 'fas fa-tag', title: 'Ofertas', desc: 'Promociones y ofertas exclusivas' },
+  { icon: 'fas fa-passport', title: 'Visas', desc: 'Asesoría y diligenciamiento DS-160' },
   { icon: 'fas fa-plane', title: 'Reservas', desc: 'Reserva tu viaje fácilmente' },
 ]
 
@@ -37,23 +37,6 @@ const filters = [
   { label: 'Exóticos', value: 'exoticos' },
 ]
 
-const ofertas = [
-  {
-    img: `${BASE}images/siente-el-paraiso.png`,
-    title: 'El Paraíso',
-    desc: 'Paquetes exclusivos a los destinos más paradisíacos del mundo.',
-  },
-  {
-    img: `${BASE}images/Siente-Vietnam-Nueva.png`,
-    title: 'Vietnam',
-    desc: 'Descubre los templos, paisajes y gastronomía de Vietnam.',
-  },
-  {
-    img: `${BASE}images/siente-asia-central.png`,
-    title: 'Asia Central',
-    desc: 'Una aventura única por las rutas de la seda.',
-  },
-]
 
 // Hook for scroll-triggered fade-in
 function useFadeIn() {
@@ -141,7 +124,6 @@ export default function Home() {
 
   const servicesRef = useFadeIn()
   const destinosRef = useFadeIn()
-  const ofertasRef = useFadeIn()
   const contactRef = useFadeIn()
 
   const filteredDestinos = activeFilter === 'all'
@@ -219,34 +201,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. Ofertas */}
-      <section id="ofertas" className="section ofertas-section">
-        <div className="container">
-          <h2 className="section-title">Ofertas</h2>
-          <p className="section-subtitle">
-            Descubre nuestras promociones exclusivas y viaja más por menos
-          </p>
-          <div className="ofertas-grid fade-in" ref={ofertasRef}>
-            {ofertas.map((o, i) => (
-              <div className="oferta-card" key={i}>
-                <div className="oferta-img-wrap">
-                  <img src={o.img} alt={o.title} loading="lazy" />
-                </div>
-                <div className="oferta-content">
-                  <h3>{o.title}</h3>
-                  <p>{o.desc}</p>
-                  <a href="https://wa.me/573003748933?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20un%20viaje" target="_blank" rel="noopener noreferrer" className="btn-accent">
-                    <i className="fab fa-whatsapp" style={{ marginRight: '6px' }} />
-                    Consultar
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 5. Contáctenos */}
+      {/* 4. Contáctenos */}
       <section id="contacto" className="section contact-section">
         <div className="container">
           <h2 className="section-title" style={{ color: '#fff' }}>Contáctenos</h2>

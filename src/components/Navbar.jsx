@@ -79,13 +79,12 @@ export default function Navbar() {
               Inicio
             </NavLink>
 
-            <a
-              href="#ofertas"
-              className="nav-link"
-              onClick={e => handleHashLink(e, 'ofertas')}
+            <NavLink
+              to="/visas"
+              className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}
             >
-              Ofertas
-            </a>
+              Visas
+            </NavLink>
 
             {/* Destinos dropdown */}
             <div
@@ -158,13 +157,12 @@ export default function Navbar() {
           Inicio
         </NavLink>
 
-        <a
-          href="#ofertas"
-          className="nav-link"
-          onClick={e => handleHashLink(e, 'ofertas')}
+        <NavLink
+          to="/visas"
+          className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}
         >
-          Ofertas
-        </a>
+          Visas
+        </NavLink>
 
         <button
           className="nav-link"
