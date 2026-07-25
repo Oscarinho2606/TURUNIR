@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { NavLink, Link, useLocation } from 'react-router-dom'
+import { NavLink, Link, useLocation, useNavigate } from 'react-router-dom'
 
 const BASE = import.meta.env.BASE_URL
 
@@ -17,6 +17,7 @@ export default function Navbar() {
   const [destOpen, setDestOpen] = useState(false)
   const [mobilDestOpen, setMobilDestOpen] = useState(false)
   const location = useLocation()
+  const navigate = useNavigate()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,15 +39,19 @@ export default function Navbar() {
 
   const isHome = location.pathname === '/'
 
-  const handleHashLink = (e, href) => {
+  const handleHashLink = (e, hash) => {
     e.preventDefault()
     setMenuOpen(false)
-    const [path, hash] = href.split('#')
-    if (location.pathname !== '/') {
-      window.location.href = href
-    } else {
+    setDestOpen(false)
+    const scrollTo = () => {
       const el = document.getElementById(hash)
       if (el) el.scrollIntoView({ behavior: 'smooth' })
+    }
+    if (location.pathname === '/') {
+      scrollTo()
+    } else {
+      navigate('/')
+      setTimeout(scrollTo, 350)
     }
   }
 
@@ -75,9 +80,9 @@ export default function Navbar() {
             </NavLink>
 
             <a
-              href="/#ofertas"
+              href="#ofertas"
               className="nav-link"
-              onClick={e => handleHashLink(e, '/#ofertas')}
+              onClick={e => handleHashLink(e, 'ofertas')}
             >
               Ofertas
             </a>
@@ -100,8 +105,8 @@ export default function Navbar() {
                 {destinos.map(d => (
                   <a
                     key={d.label}
-                    href={d.href}
-                    onClick={e => handleHashLink(e, d.href)}
+                    href="#destinos"
+                    onClick={e => handleHashLink(e, 'destinos')}
                   >
                     {d.label}
                   </a>
@@ -154,9 +159,9 @@ export default function Navbar() {
         </NavLink>
 
         <a
-          href="/#ofertas"
+          href="#ofertas"
           className="nav-link"
-          onClick={e => handleHashLink(e, '/#ofertas')}
+          onClick={e => handleHashLink(e, 'ofertas')}
         >
           Ofertas
         </a>
@@ -174,8 +179,8 @@ export default function Navbar() {
             {destinos.map(d => (
               <a
                 key={d.label}
-                href={d.href}
-                onClick={e => handleHashLink(e, d.href)}
+                href="#destinos"
+                onClick={e => handleHashLink(e, 'destinos')}
               >
                 {d.label}
               </a>

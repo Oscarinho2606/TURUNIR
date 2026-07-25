@@ -1,8 +1,25 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 
 const BASE = import.meta.env.BASE_URL
 
 export default function Footer() {
+  const navigate = useNavigate()
+  const location = useLocation()
+
+  const goToDestinos = (e) => {
+    e.preventDefault()
+    const scrollTo = () => {
+      const el = document.getElementById('destinos')
+      if (el) el.scrollIntoView({ behavior: 'smooth' })
+    }
+    if (location.pathname === '/') {
+      scrollTo()
+    } else {
+      navigate('/')
+      setTimeout(scrollTo, 350)
+    }
+  }
+
   return (
     <footer className="footer">
       <div className="container">
@@ -43,11 +60,11 @@ export default function Footer() {
           <div className="footer-col">
             <h4 className="footer-widget-title">Destinos</h4>
             <ul>
-              <li><a href="/#destinos">Suramérica</a></li>
-              <li><a href="/#destinos">Europa</a></li>
-              <li><a href="/#destinos">Cruceros</a></li>
-              <li><a href="/#destinos">Lejano Oriente</a></li>
-              <li><a href="/#destinos">África y Exóticos</a></li>
+              <li><a href="#destinos" onClick={goToDestinos}>Suramérica</a></li>
+              <li><a href="#destinos" onClick={goToDestinos}>Europa</a></li>
+              <li><a href="#destinos" onClick={goToDestinos}>Cruceros</a></li>
+              <li><a href="#destinos" onClick={goToDestinos}>Lejano Oriente</a></li>
+              <li><a href="#destinos" onClick={goToDestinos}>África y Exóticos</a></li>
             </ul>
           </div>
 
