@@ -2,6 +2,8 @@ import { useParams, Link } from 'react-router-dom'
 import { getDestino } from '../data/destinosData.js'
 import PageHero from '../components/PageHero.jsx'
 
+const WA_LINK = 'https://wa.me/573003748933?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20un%20viaje'
+
 export default function Destino() {
   const { slug } = useParams()
   const destino = getDestino(slug)
@@ -103,10 +105,10 @@ export default function Destino() {
             </p>
           </div>
           <div className="destino-cta-actions">
-            <Link to="/reservas" className="btn-primary">
-              <i className="fas fa-paper-plane" style={{ marginRight: '8px' }} />
-              Cotiza tu viaje
-            </Link>
+            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn-whatsapp btn-whatsapp-lg">
+              <i className="fab fa-whatsapp" />
+              Cotiza por WhatsApp
+            </a>
             <Link to="/#destinos" className="btn-outline-white">
               Ver más destinos
             </Link>

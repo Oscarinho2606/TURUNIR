@@ -52,7 +52,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className={`navbar${scrolled ? ' scrolled' : ''}`}>
+      <nav className={`navbar${(scrolled || !isHome) ? ' scrolled' : ''}`}>
         <div className="navbar-inner">
           {/* Logo */}
           <Link to="/" className="navbar-logo">

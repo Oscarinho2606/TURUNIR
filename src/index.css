@@ -1551,6 +1551,290 @@ ul {
 }
 
 /* =============================================
+   WHATSAPP BUTTON
+   ============================================= */
+
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #25D366;
+  color: #fff;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 14px 28px;
+  border-radius: 4px;
+  transition: background 0.25s, transform 0.2s;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-whatsapp i {
+  font-size: 22px;
+}
+
+.btn-whatsapp:hover {
+  background: #1ebe5d;
+  transform: translateY(-2px);
+}
+
+.btn-whatsapp-lg {
+  font-size: 17px;
+  padding: 15px 32px;
+}
+
+.btn-whatsapp-full {
+  width: 100%;
+  justify-content: center;
+  font-size: 17px;
+  padding: 16px;
+  margin-top: 8px;
+}
+
+.btn-whatsapp-full:disabled {
+  background: #a0d8b3;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* =============================================
+   RESERVAS PAGE
+   ============================================= */
+
+.reservas-section {
+  background: var(--gray);
+}
+
+.reservas-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 50px;
+  align-items: start;
+}
+
+/* Form box */
+.reservas-form-box {
+  background: var(--white);
+  padding: 44px 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+}
+
+.reservas-form-box h2 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--dark);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.reservas-form-sub {
+  color: #777;
+  font-size: 14px;
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+
+.reservas-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.rform-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.rform-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.rform-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.rform-group label i {
+  color: var(--primary);
+  margin-right: 5px;
+}
+
+.rform-group input,
+.rform-group textarea {
+  border: 1.5px solid #ddd;
+  border-radius: 6px;
+  padding: 12px 14px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  transition: border-color 0.25s, box-shadow 0.25s;
+  outline: none;
+  resize: vertical;
+}
+
+.rform-group input:focus,
+.rform-group textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(0,124,195,0.12);
+}
+
+.rform-note {
+  font-size: 12px;
+  color: #999;
+  text-align: center;
+  margin-top: 4px;
+}
+
+/* Info box */
+.reservas-info-box {
+  background: var(--white);
+  padding: 36px 32px;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+}
+
+.reservas-info-box h3 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--dark);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--gray);
+}
+
+.reservas-info-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  margin-bottom: 22px;
+}
+
+.rinfo-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), #004f8b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.rinfo-icon i {
+  color: var(--white);
+  font-size: 18px;
+}
+
+.reservas-info-item strong {
+  display: block;
+  font-size: 14px;
+  color: var(--dark);
+  margin-bottom: 4px;
+}
+
+.reservas-info-item p {
+  font-size: 13px;
+  color: #777;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.reservas-contacto-directo {
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 2px solid var(--gray);
+}
+
+.rcontacto-label {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 12px;
+}
+
+.rcontacto-horario {
+  font-size: 12px;
+  color: #aaa;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Pasos */
+.reservas-pasos-section {
+  background: var(--white);
+}
+
+.reservas-pasos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.reservas-paso-card {
+  text-align: center;
+  padding: 36px 24px;
+  background: var(--gray);
+  border-radius: 10px;
+  position: relative;
+}
+
+.paso-num {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 56px;
+  font-weight: 700;
+  color: rgba(0,124,195,0.1);
+  line-height: 1;
+  position: absolute;
+  top: 14px;
+  right: 20px;
+}
+
+.paso-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), #004f8b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+}
+
+.paso-icon i {
+  font-size: 24px;
+  color: var(--white);
+}
+
+.reservas-paso-card h3 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--dark);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.reservas-paso-card p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.7;
+}
+
+/* =============================================
    RESPONSIVE
    ============================================= */
 
@@ -1622,6 +1906,23 @@ ul {
   .footer-bottom-inner {
     justify-content: center;
     text-align: center;
+  }
+
+  .reservas-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reservas-pasos-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .rform-row {
+    grid-template-columns: 1fr;
+  }
+
+  .reservas-form-box {
+    padding: 28px 22px;
   }
 }
 

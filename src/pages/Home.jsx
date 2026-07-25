@@ -235,7 +235,8 @@ export default function Home() {
                 <div className="oferta-content">
                   <h3>{o.title}</h3>
                   <p>{o.desc}</p>
-                  <a href="/reservas" className="btn-accent" onClick={e => { e.preventDefault(); window.location.href = '/reservas' }}>
+                  <a href="https://wa.me/573003748933?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20un%20viaje" target="_blank" rel="noopener noreferrer" className="btn-accent">
+                    <i className="fab fa-whatsapp" style={{ marginRight: '6px' }} />
                     Consultar
                   </a>
                 </div>
