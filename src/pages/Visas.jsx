@@ -69,16 +69,6 @@ const pasos = [
   },
 ]
 
-const docs = [
-  { icon: 'fas fa-passport', label: 'Pasaporte vigente (mínimo 6 meses de validez)' },
-  { icon: 'fas fa-image', label: 'Foto reciente con especificaciones del consulado' },
-  { icon: 'fas fa-money-bill-wave', label: 'Extractos bancarios de los últimos 3-6 meses' },
-  { icon: 'fas fa-briefcase', label: 'Carta laboral con cargo, salario y tiempo de vinculación' },
-  { icon: 'fas fa-file-invoice', label: 'Declaración de renta o estados financieros (independientes)' },
-  { icon: 'fas fa-building', label: 'Documentos de propiedad (casa, negocio, vehículo)' },
-  { icon: 'fas fa-users', label: 'Registro civil, acta de matrimonio (vínculos familiares en Colombia)' },
-  { icon: 'fas fa-receipt', label: 'Comprobante de pago del arancel MRV (US$ 185)' },
-]
 
 export default function Visas() {
   return (
@@ -218,28 +208,6 @@ export default function Visas() {
         </div>
       </section>
 
-      {/* Documentos */}
-      <section className="section visas-docs-section">
-        <div className="container">
-          <h2 className="section-title">Documentos que generalmente se requieren</h2>
-          <p className="section-subtitle">
-            La lista varía según tu perfil — te indicamos exactamente qué necesitas en tu caso
-          </p>
-          <div className="visas-docs-grid">
-            {docs.map((d, i) => (
-              <div className="visas-doc-item" key={i}>
-                <i className={d.icon} />
-                <span>{d.label}</span>
-              </div>
-            ))}
-          </div>
-          <p className="visas-docs-note">
-            <i className="fas fa-info-circle" />
-            Esta es una lista general orientativa. Los requisitos específicos dependen de tu perfil (empleado, independiente, estudiante, pensionado) y del consulado.
-            <strong> Contáctanos para una evaluación personalizada de tu caso.</strong>
-          </p>
-        </div>
-      </section>
 
       {/* Paso a paso */}
       <section className="section visas-pasos-section">
