@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 
+const BASE = import.meta.env.BASE_URL
+
 export default function Footer() {
   return (
     <footer className="footer">
@@ -9,7 +11,7 @@ export default function Footer() {
           <div className="footer-col">
             <div className="footer-logo">
               <img
-                src="/images/cropped-LOGO-TURISMO-UNIVERSAL-REPRESENTACIONES-S.A.S.-300x105.png"
+                src={`${BASE}images/cropped-LOGO-TURISMO-UNIVERSAL-REPRESENTACIONES-S.A.S.-300x105.png`}
                 alt="Turismo Universal Representaciones"
                 style={{ height: '60px', width: 'auto', filter: 'brightness(0) invert(1)', opacity: 0.8 }}
               />

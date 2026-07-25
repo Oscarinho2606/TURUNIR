@@ -1,23 +1,25 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 
+const BASE = import.meta.env.BASE_URL
+
 const slides = [
   {
-    img: '/images/cruceros.png',
+    img: `${BASE}images/cruceros.png`,
     title: 'Cruceros por el Mundo',
     subtitle: 'Descubre los mejores destinos en crucero',
     btn: 'Ver Cruceros',
     link: '/#destinos',
   },
   {
-    img: '/images/europa-turismo-universal.png',
+    img: `${BASE}images/europa-turismo-universal.png`,
     title: 'Descubre Europa',
     subtitle: 'Los mejores paquetes turísticos a Europa',
     btn: 'Ver Europa',
     link: '/#destinos',
   },
   {
-    img: '/images/ofertas-turismo-universal.png',
+    img: `${BASE}images/ofertas-turismo-universal.png`,
     title: 'Ofertas Especiales',
     subtitle: 'Promociones exclusivas para tu próximo viaje',
     btn: 'Ver Ofertas',

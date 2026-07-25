@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
 import Hero from '../components/Hero.jsx'
 
+const BASE = import.meta.env.BASE_URL
+
 const services = [
   { icon: 'fas fa-ship', title: 'Cruceros', desc: 'Paquetes en crucero por el mundo' },
   { icon: 'fas fa-university', title: 'Europa', desc: 'Los mejores tours por Europa' },
@@ -9,21 +11,21 @@ const services = [
 ]
 
 const destinos = [
-  { img: '/images/cruceros.png', title: 'Cruceros', cat: 'cruceros' },
-  { img: '/images/europa-turismo-universal.png', title: 'Europa', cat: 'europa' },
-  { img: '/images/siente-vietnam.png', title: 'Vietnam', cat: 'exoticos' },
-  { img: '/images/siente-dubai.png', title: 'Dubai', cat: 'exoticos' },
-  { img: '/images/siente-jordania.png', title: 'Jordania', cat: 'exoticos' },
-  { img: '/images/siente-turquia.png', title: 'Turquía', cat: 'exoticos' },
-  { img: '/images/siente-china.png', title: 'China', cat: 'exoticos' },
-  { img: '/images/siente-japon.png', title: 'Japón', cat: 'exoticos' },
-  { img: '/images/siente-india.png', title: 'India', cat: 'exoticos' },
-  { img: '/images/siente-kenia.png', title: 'Kenia', cat: 'exoticos' },
-  { img: '/images/siente-tailandia.png', title: 'Tailandia', cat: 'exoticos' },
-  { img: '/images/buenos-aires-mar-de-plata.png', title: 'Buenos Aires', cat: 'suramerica' },
-  { img: '/images/lima-aventurera-plan.png', title: 'Lima Aventurera', cat: 'suramerica' },
-  { img: '/images/lima-experiencia-turunir.png', title: 'Lima Experiencia', cat: 'suramerica' },
-  { img: '/images/promo-exclusica-disney.png', title: 'Disney', cat: 'suramerica' },
+  { img: `${BASE}images/cruceros.png`, title: 'Cruceros', cat: 'cruceros' },
+  { img: `${BASE}images/europa-turismo-universal.png`, title: 'Europa', cat: 'europa' },
+  { img: `${BASE}images/siente-vietnam.png`, title: 'Vietnam', cat: 'exoticos' },
+  { img: `${BASE}images/siente-dubai.png`, title: 'Dubai', cat: 'exoticos' },
+  { img: `${BASE}images/siente-jordania.png`, title: 'Jordania', cat: 'exoticos' },
+  { img: `${BASE}images/siente-turquia.png`, title: 'Turquía', cat: 'exoticos' },
+  { img: `${BASE}images/siente-china.png`, title: 'China', cat: 'exoticos' },
+  { img: `${BASE}images/siente-japon.png`, title: 'Japón', cat: 'exoticos' },
+  { img: `${BASE}images/siente-india.png`, title: 'India', cat: 'exoticos' },
+  { img: `${BASE}images/siente-kenia.png`, title: 'Kenia', cat: 'exoticos' },
+  { img: `${BASE}images/siente-tailandia.png`, title: 'Tailandia', cat: 'exoticos' },
+  { img: `${BASE}images/buenos-aires-mar-de-plata.png`, title: 'Buenos Aires', cat: 'suramerica' },
+  { img: `${BASE}images/lima-aventurera-plan.png`, title: 'Lima Aventurera', cat: 'suramerica' },
+  { img: `${BASE}images/lima-experiencia-turunir.png`, title: 'Lima Experiencia', cat: 'suramerica' },
+  { img: `${BASE}images/promo-exclusica-disney.png`, title: 'Disney', cat: 'suramerica' },
 ]
 
 const filters = [
@@ -36,17 +38,17 @@ const filters = [
 
 const ofertas = [
   {
-    img: '/images/siente-el-paraiso.png',
+    img: `${BASE}images/siente-el-paraiso.png`,
     title: 'El Paraíso',
     desc: 'Paquetes exclusivos a los destinos más paradisíacos del mundo.',
   },
   {
-    img: '/images/Siente-Vietnam-Nueva.png',
+    img: `${BASE}images/Siente-Vietnam-Nueva.png`,
     title: 'Vietnam',
     desc: 'Descubre los templos, paisajes y gastronomía de Vietnam.',
   },
   {
-    img: '/images/siente-asia-central.png',
+    img: `${BASE}images/siente-asia-central.png`,
     title: 'Asia Central',
     desc: 'Una aventura única por las rutas de la seda.',
   },

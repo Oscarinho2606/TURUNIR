@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { NavLink, Link, useLocation } from 'react-router-dom'
 
+const BASE = import.meta.env.BASE_URL
+
 const destinos = [
   { label: 'Suramérica', href: '/#destinos' },
   { label: 'Europa', href: '/#destinos' },
@@ -55,7 +57,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" className="navbar-logo">
             <img
-              src="/images/cropped-LOGO-TURISMO-UNIVERSAL-REPRESENTACIONES-S.A.S.-300x105.png"
+              src={`${BASE}images/cropped-LOGO-TURISMO-UNIVERSAL-REPRESENTACIONES-S.A.S.-300x105.png`}
               alt="Turismo Universal Representaciones"
               height="55"
               style={{ height: '55px', width: 'auto' }}
