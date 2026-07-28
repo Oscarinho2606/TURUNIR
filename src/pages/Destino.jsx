@@ -12,7 +12,7 @@ export default function Destino() {
     return (
       <div style={{ textAlign: 'center', padding: '120px 20px' }}>
         <h2>Destino no encontrado</h2>
-        <Link to="/" className="btn-primary" style={{ marginTop: '20px', display: 'inline-block' }}>
+        <Link to="/" className="btn btn-navy" style={{ marginTop: '20px' }}>
           Volver al inicio
         </Link>
       </div>
@@ -24,69 +24,65 @@ export default function Destino() {
       <PageHero
         title={destino.title}
         subtitle={destino.tagline}
+        breadcrumb={`Inicio / Destinos / ${destino.title}`}
         img={destino.img}
       />
 
-      {/* Info rápida */}
       <div className="destino-info-bar">
         <div className="container">
-          <div className="destino-info-items">
+          <div className="destino-info-inner">
             <div className="destino-info-item">
-              <i className="fas fa-clock" />
-              <div>
-                <span className="info-label">Duración sugerida</span>
-                <span className="info-value">{destino.duracion}</span>
-              </div>
+              <i className="fas fa-clock"></i>
+              <span>Duración: {destino.duracion}</span>
             </div>
             <div className="destino-info-item">
-              <i className="fas fa-calendar-alt" />
-              <div>
-                <span className="info-label">Mejor época</span>
-                <span className="info-value">{destino.mejorEpoca}</span>
-              </div>
+              <i className="fas fa-calendar-alt"></i>
+              <span>Mejor época: {destino.mejorEpoca}</span>
             </div>
             <div className="destino-info-item">
-              <i className="fas fa-map-marker-alt" />
-              <div>
-                <span className="info-label">Región</span>
-                <span className="info-value">{destino.region}</span>
-              </div>
+              <i className="fas fa-map-marker-alt"></i>
+              <span>{destino.region}</span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Descripción */}
-      <section className="section destino-descripcion">
+      <section className="destino-desc-section">
         <div className="container destino-desc-inner">
           <div className="destino-desc-text">
-            <h2 className="section-title" style={{ textAlign: 'left' }}>
-              Descubre {destino.title}
-            </h2>
+            <span className="eyebrow">Un destino imperdible</span>
+            <h2 style={{ marginBottom: '18px' }}>Descubre {destino.title}</h2>
             {destino.parrafos.map((p, i) => (
               <p key={i}>{p}</p>
             ))}
           </div>
-          <div className="destino-desc-img">
-            <img src={destino.img} alt={destino.title} />
+          <div className="destino-desc-aside">
+            <h3>¿Te interesa este destino?</h3>
+            <p>
+              Nuestros asesores diseñan itinerarios a la medida. Escríbenos y armamos tu viaje
+              exactamente como lo imaginas.
+            </p>
+            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn-whatsapp btn-whatsapp-full">
+              <i className="fab fa-whatsapp"></i> Cotizar por WhatsApp
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Highlights */}
-      <section className="section destino-highlights-section">
+      <section className="destino-highlights-section">
         <div className="container">
-          <h2 className="section-title">¿Qué te espera?</h2>
-          <p className="section-subtitle">
-            Los lugares y experiencias que harán de este viaje algo inolvidable
-          </p>
+          <div className="section-head">
+            <span className="eyebrow">Lo mejor de {destino.title}</span>
+            <h2>¿Qué te espera?</h2>
+            <p>Los lugares y experiencias que harán de este viaje algo inolvidable.</p>
+          </div>
           <div className="destino-highlights-grid">
             {destino.highlights.map((h, i) => (
               <div className="destino-highlight-card" key={i}>
-                <div className="highlight-icon">
-                  <i className={h.icon} />
+                <div className="destino-highlight-icon">
+                  <i className={h.icon}></i>
                 </div>
-                <h3>{h.label}</h3>
+                <h4>{h.label}</h4>
                 <p>{h.desc}</p>
               </div>
             ))}
@@ -94,23 +90,19 @@ export default function Destino() {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="destino-cta-section">
-        <div className="container destino-cta-inner">
-          <div className="destino-cta-text">
-            <h2>¿Listo para vivir esta aventura?</h2>
-            <p>
-              Nuestros asesores de viaje están listos para crear el itinerario perfecto,
-              adaptado exactamente a lo que sueñas.
-            </p>
-          </div>
-          <div className="destino-cta-actions">
+        <div className="container">
+          <h2>¿Listo para vivir esta aventura?</h2>
+          <p>
+            Nuestros asesores están listos para crear el itinerario perfecto, adaptado exactamente a
+            lo que sueñas.
+          </p>
+          <div className="destino-cta-btns">
             <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn-whatsapp btn-whatsapp-lg">
-              <i className="fab fa-whatsapp" />
-              Cotiza por WhatsApp
+              <i className="fab fa-whatsapp"></i> Cotizar por WhatsApp
             </a>
-            <Link to="/#destinos" className="btn-outline-white">
-              Ver más destinos
+            <Link to="/reservas" className="btn btn-outline-white">
+              Ir al formulario de reservas
             </Link>
           </div>
         </div>

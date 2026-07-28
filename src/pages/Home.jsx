@@ -1,14 +1,16 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import Hero from '../components/Hero.jsx'
 
 const BASE = import.meta.env.BASE_URL
+const WA = 'https://wa.me/573003748933'
 
 const services = [
-  { icon: 'fas fa-ship', title: 'Cruceros', desc: 'Paquetes en crucero por el mundo' },
-  { icon: 'fas fa-university', title: 'Europa', desc: 'Los mejores tours por Europa' },
-  { icon: 'fas fa-passport', title: 'Visas', desc: 'Asesoría y diligenciamiento DS-160' },
-  { icon: 'fas fa-plane', title: 'Reservas', desc: 'Reserva tu viaje fácilmente' },
+  { icon: 'fas fa-ship', title: 'Cruceros', desc: 'Reservas en las principales líneas navieras del mundo.' },
+  { icon: 'fas fa-hotel', title: 'Hoteles', desc: 'Tarifas preferenciales: Radisson, Marriott, NH, Sheraton, Accor.' },
+  { icon: 'fas fa-passport', title: 'Visas', desc: 'Asesoría y diligenciamiento de formularios DS-160.' },
+  { icon: 'fas fa-car', title: 'Autos', desc: 'Alquiler con Alamo, Avis, Budget, Hertz y Thrifty.' },
+  { icon: 'fas fa-notes-medical', title: 'Asistencia médica', desc: 'Convenios con Assist Card, Qualitas, April/Coris.' },
+  { icon: 'fas fa-calendar-check', title: 'Eventos corporativos', desc: 'Logística y organización de congresos e incentivos.' },
 ]
 
 const destinos = [
@@ -26,7 +28,7 @@ const destinos = [
   { img: `${BASE}images/buenos-aires-mar-de-plata.png`, title: 'Buenos Aires', cat: 'suramerica', slug: 'buenos-aires' },
   { img: `${BASE}images/lima-aventurera-plan.png`, title: 'Lima Aventurera', cat: 'suramerica', slug: 'lima-aventurera' },
   { img: `${BASE}images/lima-experiencia-turunir.png`, title: 'Lima Experiencia', cat: 'suramerica', slug: 'lima-experiencia' },
-  { img: `${BASE}images/promo-exclusica-disney.png`, title: 'Disney', cat: 'suramerica', slug: 'disney' },
+  { img: `${BASE}images/promo-exclusica-disney.png`, title: 'Disney Orlando', cat: 'suramerica', slug: 'disney' },
 ]
 
 const filters = [
@@ -37,8 +39,17 @@ const filters = [
   { label: 'Exóticos', value: 'exoticos' },
 ]
 
+const catLabels = { cruceros: 'Cruceros', europa: 'Europa', exoticos: 'Exótico', suramerica: 'Suramérica' }
 
-// Hook for scroll-triggered fade-in
+const whyUs = [
+  { icon: 'fas fa-award', title: '+20 años en el mercado', desc: 'Trayectoria continua desde nuestros inicios en Bogotá, sin interrupciones.' },
+  { icon: 'fas fa-file-contract', title: 'Registro Nacional de Turismo', desc: 'No. 29224 — operadores turísticos formales ante el Ministerio de Comercio, Industria y Turismo.' },
+  { icon: 'fas fa-handshake', title: 'Alianzas de primera línea', desc: 'Convenios directos con aerolíneas, cadenas hoteleras y operadores internacionales.' },
+  { icon: 'fas fa-user-tie', title: 'Atención personalizada', desc: 'Un asesor real te acompaña desde la cotización hasta el regreso a casa.' },
+]
+
+const aliados = ['Marriott', 'Radisson', 'NH Hoteles', 'Sheraton', 'Accor', 'Avis', 'Hertz', 'Assist Card', 'Qualitas Assistance']
+
 function useFadeIn() {
   const ref = useRef(null)
   useEffect(() => {
@@ -60,60 +71,34 @@ function useFadeIn() {
 }
 
 function ContactForm() {
-  const [form, setForm] = useState({ name: '', email: '', message: '' })
-  const [success, setSuccess] = useState(false)
+  const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' })
 
-  const handleChange = e => {
-    setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
-  }
+  const handleChange = e => setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
 
   const handleSubmit = e => {
     e.preventDefault()
-    setSuccess(true)
-    setForm({ name: '', email: '', message: '' })
-    setTimeout(() => setSuccess(false), 4000)
+    const msg = `Hola, soy ${form.name}.\n\n${form.message}\n\nCorreo: ${form.email}${form.phone ? `\nTeléfono: ${form.phone}` : ''}`
+    window.open(`${WA}?text=${encodeURIComponent(msg)}`, '_blank')
+    setForm({ name: '', email: '', phone: '', message: '' })
   }
 
   return (
     <form onSubmit={handleSubmit} className="contact-form">
-      <h3>Envíenos un Mensaje</h3>
-      {success && (
-        <div className="contact-success">
-          ¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.
-        </div>
-      )}
+      <h3>Envíanos un mensaje</h3>
       <div className="form-group">
-        <input
-          type="text"
-          name="name"
-          placeholder="Su nombre completo"
-          value={form.name}
-          onChange={handleChange}
-          required
-        />
+        <input type="text" name="name" placeholder="Tu nombre completo" value={form.name} onChange={handleChange} required />
       </div>
       <div className="form-group">
-        <input
-          type="email"
-          name="email"
-          placeholder="Su correo electrónico"
-          value={form.email}
-          onChange={handleChange}
-          required
-        />
+        <input type="email" name="email" placeholder="Tu correo electrónico" value={form.email} onChange={handleChange} required />
       </div>
       <div className="form-group">
-        <textarea
-          name="message"
-          placeholder="Su mensaje..."
-          value={form.message}
-          onChange={handleChange}
-          required
-        />
+        <input type="tel" name="phone" placeholder="Tu teléfono (opcional)" value={form.phone} onChange={handleChange} />
       </div>
-      <button type="submit" className="btn-primary">
-        <i className="fas fa-paper-plane" style={{ marginRight: '8px' }} />
-        Enviar Mensaje
+      <div className="form-group">
+        <textarea name="message" placeholder="Cuéntanos sobre el viaje que imaginas..." value={form.message} onChange={handleChange} required />
+      </div>
+      <button type="submit" className="btn btn-gold" style={{ width: '100%', justifyContent: 'center' }}>
+        <i className="fab fa-whatsapp"></i> Enviar por WhatsApp
       </button>
     </form>
   )
@@ -121,40 +106,59 @@ function ContactForm() {
 
 export default function Home() {
   const [activeFilter, setActiveFilter] = useState('all')
-
   const servicesRef = useFadeIn()
   const destinosRef = useFadeIn()
-  const contactRef = useFadeIn()
 
-  const filteredDestinos = activeFilter === 'all'
-    ? destinos
-    : destinos.filter(d => d.cat === activeFilter)
-
-  const handleDestinoClick = (e) => {
-    e.preventDefault()
-    // They link to /#destinos which is on same page — just scroll
-    const el = document.getElementById('destinos')
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
-  }
+  const filteredDestinos = activeFilter === 'all' ? destinos : destinos.filter(d => d.cat === activeFilter)
 
   return (
     <>
-      {/* 1. Hero Slider */}
-      <Hero />
-
-      {/* 2. Nuestros Servicios */}
-      <section id="servicios" className="section services-section">
+      {/* HERO */}
+      <section className="hero" id="inicio">
         <div className="container">
-          <h2 className="section-title">Nuestros Servicios</h2>
-          <p className="section-subtitle">
-            Ofrecemos una amplia gama de servicios turísticos diseñados para que tu viaje sea perfecto
-          </p>
+          <div className="hero-content">
+            <span className="eyebrow">Agencia de viajes · Registro Nacional de Turismo No. 29224</span>
+            <h1>Tu próximo viaje, en manos <em>expertas</em> desde hace más de 20 años</h1>
+            <p>Diseñamos experiencias de viaje a la medida — cruceros, Europa, destinos exóticos y turismo corporativo — con el respaldo de una agencia formal y la atención de un asesor real, no un bot.</p>
+            <div className="hero-actions">
+              <a className="btn btn-gold" href={WA} target="_blank" rel="noopener noreferrer">
+                <i className="fab fa-whatsapp"></i> Habla por WhatsApp
+              </a>
+              <a className="btn btn-outline-light" href="#destinos">
+                Ver destinos <i className="fas fa-arrow-right"></i>
+              </a>
+            </div>
+            <div className="hero-trust">
+              <div><span className="num">20+</span><span className="lbl">Años de experiencia</span></div>
+              <div><span className="num">29224</span><span className="lbl">Registro Nacional de Turismo</span></div>
+              <div><span className="num">15+</span><span className="lbl">Destinos activos</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* TRUST STRIP */}
+      <div className="trust-strip">
+        <div className="container">
+          <div className="trust-item"><i className="fas fa-shield-alt"></i> Agencia formal registrada ante MinCIT</div>
+          <div className="trust-item"><i className="fas fa-headset"></i> Asesoría personalizada, no automatizada</div>
+          <div className="trust-item"><i className="fas fa-hotel"></i> Tarifas con Marriott, Radisson, NH, Sheraton</div>
+          <div className="trust-item"><i className="fas fa-notes-medical"></i> Asistencia médica de viaje incluida</div>
+        </div>
+      </div>
+
+      {/* SERVICIOS */}
+      <section className="section" id="servicios">
+        <div className="container">
+          <div className="section-head">
+            <span className="eyebrow">Qué hacemos</span>
+            <h2>Servicios integrales de viaje</h2>
+            <p>De la reserva al regreso — cubrimos cada parte del viaje con proveedores de primera línea.</p>
+          </div>
           <div className="services-grid fade-in" ref={servicesRef}>
             {services.map((s, i) => (
               <div className="service-card" key={i}>
-                <div className="service-icon">
-                  <i className={s.icon} />
-                </div>
+                <div className="service-icon"><i className={s.icon}></i></div>
                 <h3>{s.title}</h3>
                 <p>{s.desc}</p>
               </div>
@@ -163,15 +167,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. Destinos */}
-      <section id="destinos" className="section destinos-section">
+      {/* DESTINOS */}
+      <section className="section destinos-section" id="destinos">
         <div className="container">
-          <h2 className="section-title">Destinos</h2>
-          <p className="section-subtitle">
-            Explora el mundo con nosotros — desde el encanto de Europa hasta los exóticos destinos de Asia
-          </p>
-
-          {/* Filter Buttons */}
+          <div className="section-head">
+            <span className="eyebrow">A dónde ir</span>
+            <h2>Destinos</h2>
+            <p>Desde el encanto de Europa hasta los exóticos rincones de Asia y África.</p>
+          </div>
           <div className="filter-buttons">
             {filters.map(f => (
               <button
@@ -183,88 +186,89 @@ export default function Home() {
               </button>
             ))}
           </div>
-
-          {/* Destinos Grid */}
           <div className="destinos-grid fade-in" ref={destinosRef}>
-            {filteredDestinos.map((d, i) => (
-              <div className="destino-card" key={`${d.cat}-${i}`}>
+            {filteredDestinos.map((d) => (
+              <Link to={`/destinos/${d.slug}`} className="destino-card" key={d.slug}>
                 <img src={d.img} alt={d.title} loading="lazy" />
                 <div className="destino-overlay">
+                  <div className="destino-cat">{catLabels[d.cat]}</div>
                   <h3>{d.title}</h3>
-                  <Link to={`/destinos/${d.slug}`} className="btn-primary">
-                    Ver más
-                  </Link>
+                  <span className="destino-link">Ver más <i className="fas fa-arrow-right"></i></span>
                 </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* POR QUÉ ELEGIRNOS */}
+      <section className="section" id="nosotros">
+        <div className="container">
+          <div className="section-head">
+            <span className="eyebrow">Por qué elegirnos</span>
+            <h2>Confianza construida durante dos décadas</h2>
+            <p>No somos los más nuevos vendiendo el destino de moda — somos los que siguen respondiendo el teléfono.</p>
+          </div>
+          <div className="why-grid">
+            {whyUs.map((w, i) => (
+              <div className="why-item" key={i}>
+                <i className={w.icon}></i>
+                <h3>{w.title}</h3>
+                <p>{w.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 4. Contáctenos */}
-      <section id="contacto" className="section contact-section">
+      {/* ALIADOS */}
+      <div className="allies">
         <div className="container">
-          <h2 className="section-title" style={{ color: '#fff' }}>Contáctenos</h2>
-          <p className="section-subtitle" style={{ color: 'rgba(255,255,255,0.7)' }}>
-            Estamos listos para ayudarte a planificar el viaje de tus sueños
-          </p>
+          <div className="allies-label">Aliados y proveedores con los que trabajamos</div>
+          <div className="allies-row">
+            {aliados.map(a => <span key={a} className="ally-chip">{a}</span>)}
+          </div>
+        </div>
+      </div>
 
-          <div className="contact-grid fade-in" ref={contactRef}>
-            {/* Left: Form */}
+      {/* CONTACTO */}
+      <section className="section contact-section" id="contacto">
+        <div className="container">
+          <div className="section-head">
+            <span className="eyebrow" style={{ color: 'var(--gold-2)' }}>Hablemos</span>
+            <h2>Contáctenos</h2>
+            <p>Estamos listos para ayudarte a planificar el viaje de tus sueños — respuesta el mismo día hábil.</p>
+          </div>
+          <div className="contact-grid">
             <ContactForm />
-
-            {/* Right: Info */}
             <div className="contact-info">
-              <h3>Información de Contacto</h3>
-
+              <h3>Información de contacto</h3>
               <div className="contact-info-item">
-                <i className="fas fa-map-marker-alt" />
-                <span>Calle 147 No 7C 65 Interior 18, Bogotá - Colombia</span>
+                <i className="fas fa-map-marker-alt"></i>
+                <span>Calle 147 No 7C 65 Interior 18, Bogotá — Colombia</span>
               </div>
-
               <div className="contact-info-item">
-                <i className="fas fa-phone" />
-                <span>
-                  Tel: +571 527 7485<br />
-                  Cel: +57 3003748933
-                </span>
+                <i className="fas fa-phone"></i>
+                <span>Tel: +571 527 7485<br />Cel/WhatsApp: +57 300 374 8933</span>
               </div>
-
               <div className="contact-info-item">
-                <i className="fas fa-envelope" />
-                <a href="mailto:turismo.universal.rep@gmail.com">
-                  turismo.universal.rep@gmail.com
-                </a>
+                <i className="fas fa-envelope"></i>
+                <a href="mailto:turismo.universal.rep@gmail.com">turismo.universal.rep@gmail.com</a>
               </div>
-
               <div className="contact-info-item">
-                <i className="fas fa-globe" />
-                <a href="http://www.turunir.com" target="_blank" rel="noopener noreferrer">
-                  www.turunir.com
-                </a>
+                <i className="fas fa-globe"></i>
+                <a href="http://www.turunir.com" target="_blank" rel="noopener noreferrer">www.turunir.com</a>
               </div>
-
-              <div className="contact-info-item">
-                <i className="fas fa-clock" />
-                <span>
-                  Lunes a Viernes: 8:00 AM – 6:00 PM<br />
-                  Sábados: 9:00 AM – 1:00 PM
-                </span>
+              <div className="contact-hours">
+                <div className="contact-info-item" style={{ marginBottom: 0 }}>
+                  <i className="fas fa-clock"></i>
+                  <span>Lunes a viernes: 8:00 a.m. – 6:00 p.m.<br />Sábados: 9:00 a.m. – 1:00 p.m.</span>
+                </div>
               </div>
-
               <div className="contact-socials">
-                <a href="#" aria-label="Facebook" title="Facebook">
-                  <i className="fab fa-facebook-f" />
-                </a>
-                <a href="#" aria-label="Twitter" title="Twitter">
-                  <i className="fab fa-twitter" />
-                </a>
-                <a href="#" aria-label="Instagram" title="Instagram">
-                  <i className="fab fa-instagram" />
-                </a>
-                <a href="#" aria-label="WhatsApp" title="WhatsApp">
-                  <i className="fab fa-whatsapp" />
-                </a>
+                <a href="#" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
+                <a href={WA} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i className="fab fa-whatsapp"></i></a>
               </div>
             </div>
           </div>

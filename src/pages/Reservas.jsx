@@ -4,24 +4,9 @@ import PageHero from '../components/PageHero.jsx'
 const WA_BASE = 'https://wa.me/573003748933?text='
 
 const pasos = [
-  {
-    icon: 'fas fa-edit',
-    num: '01',
-    title: 'Completa el formulario',
-    desc: 'Cuéntanos quién eres, a dónde quieres ir y qué buscas en tu viaje.',
-  },
-  {
-    icon: 'fab fa-whatsapp',
-    num: '02',
-    title: 'Te contactamos por WhatsApp',
-    desc: 'Un asesor experto recibe tu solicitud y te responde de manera personalizada.',
-  },
-  {
-    icon: 'fas fa-plane-departure',
-    num: '03',
-    title: '¡A viajar!',
-    desc: 'Confirmamos tu reserva y solo te queda preparar la maleta y disfrutar.',
-  },
+  { num: '01', title: 'Completa el formulario', desc: 'Cuéntanos quién eres, a dónde quieres ir y qué buscas en tu viaje.' },
+  { num: '02', title: 'Te contactamos por WhatsApp', desc: 'Un asesor experto recibe tu solicitud y te responde de manera personalizada.' },
+  { num: '03', title: '¡A viajar!', desc: 'Confirmamos tu reserva y solo te queda preparar la maleta y disfrutar.' },
 ]
 
 export default function Reservas() {
@@ -33,79 +18,99 @@ export default function Reservas() {
     descripcion: '',
   })
 
-  const handleChange = e => {
-    setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
-  }
+  const handleChange = e => setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
 
   const handleSubmit = e => {
     e.preventDefault()
     const mensaje =
-      `Hola, me gustaría solicitar información sobre un viaje.%0A%0A` +
-      `*Nombre:* ${encodeURIComponent(form.nombre)}%0A` +
-      `*Correo:* ${encodeURIComponent(form.correo)}%0A` +
-      `*Celular:* ${encodeURIComponent(form.celular)}%0A` +
-      `*País / Destino:* ${encodeURIComponent(form.destino)}%0A` +
-      `*Descripción:* ${encodeURIComponent(form.descripcion)}`
-    window.open(WA_BASE + mensaje, '_blank', 'noopener,noreferrer')
+      `Hola, me gustaría solicitar información sobre un viaje.\n\n` +
+      `Nombre: ${form.nombre}\n` +
+      `Correo: ${form.correo}\n` +
+      `Celular: ${form.celular}\n` +
+      `País / Destino: ${form.destino}\n` +
+      `Descripción: ${form.descripcion}`
+    window.open(WA_BASE + encodeURIComponent(mensaje), '_blank', 'noopener,noreferrer')
   }
 
   const filled = form.nombre && form.celular && form.destino
 
   return (
     <>
-      <PageHero title="Reservas" breadcrumb="Inicio / Reservas" />
+      <PageHero
+        title="Reservas"
+        breadcrumb="Inicio / Reservas"
+        subtitle="Solicita tu cotización personalizada — te contactamos por WhatsApp"
+      />
 
-      {/* Formulario + info */}
-      <section className="section reservas-section">
+      <section className="section">
         <div className="container reservas-grid">
-
-          {/* Formulario */}
           <div className="reservas-form-box">
-            <h2>Solicita tu cotización</h2>
-            <p className="reservas-form-sub">
+            <h3>Solicita tu cotización</h3>
+            <p className="form-subtitle">
               Completa los datos y te contactamos por WhatsApp con una propuesta personalizada.
             </p>
 
-            <form onSubmit={handleSubmit} className="reservas-form">
+            <form onSubmit={handleSubmit}>
               <div className="rform-group">
-                <label htmlFor="nombre">
-                  <i className="fas fa-user" /> Nombre completo *
+                <label className="rform-label" htmlFor="nombre">
+                  Nombre completo <span className="rform-required">*</span>
                 </label>
-                <input
-                  id="nombre"
-                  name="nombre"
-                  type="text"
-                  placeholder="Tu nombre completo"
-                  value={form.nombre}
-                  onChange={handleChange}
-                  required
-                />
+                <div className="form-group">
+                  <input
+                    id="nombre"
+                    name="nombre"
+                    type="text"
+                    placeholder="Tu nombre completo"
+                    value={form.nombre}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
               </div>
 
               <div className="rform-row">
                 <div className="rform-group">
-                  <label htmlFor="correo">
-                    <i className="fas fa-envelope" /> Correo electrónico
-                  </label>
-                  <input
-                    id="correo"
-                    name="correo"
-                    type="email"
-                    placeholder="tu@correo.com"
-                    value={form.correo}
-                    onChange={handleChange}
-                  />
+                  <label className="rform-label" htmlFor="correo">Correo electrónico</label>
+                  <div className="form-group">
+                    <input
+                      id="correo"
+                      name="correo"
+                      type="email"
+                      placeholder="tu@correo.com"
+                      value={form.correo}
+                      onChange={handleChange}
+                    />
+                  </div>
                 </div>
                 <div className="rform-group">
-                  <label htmlFor="celular">
-                    <i className="fas fa-mobile-alt" /> Celular / WhatsApp *
+                  <label className="rform-label" htmlFor="celular">
+                    Celular / WhatsApp <span className="rform-required">*</span>
                   </label>
+                  <div className="form-group">
+                    <input
+                      id="celular"
+                      name="celular"
+                      type="tel"
+                      placeholder="+57 300 000 0000"
+                      value={form.celular}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div className="rform-group">
+                <label className="rform-label" htmlFor="destino">
+                  País / Destino deseado <span className="rform-required">*</span>
+                </label>
+                <div className="form-group">
                   <input
-                    id="celular"
-                    name="celular"
-                    type="tel"
-                    placeholder="+57 300 000 0000"
-                    value={form.celular}
+                    id="destino"
+                    name="destino"
+                    type="text"
+                    placeholder="Ej: Vietnam, Europa, Dubai..."
+                    value={form.destino}
                     onChange={handleChange}
                     required
                   />
@@ -113,103 +118,81 @@ export default function Reservas() {
               </div>
 
               <div className="rform-group">
-                <label htmlFor="destino">
-                  <i className="fas fa-map-marker-alt" /> País / Destino deseado *
-                </label>
-                <input
-                  id="destino"
-                  name="destino"
-                  type="text"
-                  placeholder="Ej: Vietnam, Europa, Dubai..."
-                  value={form.destino}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-
-              <div className="rform-group">
-                <label htmlFor="descripcion">
-                  <i className="fas fa-comment-dots" /> Cuéntanos qué buscas
-                </label>
-                <textarea
-                  id="descripcion"
-                  name="descripcion"
-                  rows={4}
-                  placeholder="Fechas aproximadas, número de viajeros, tipo de viaje (luna de miel, familia, aventura...) o cualquier detalle que nos ayude a ayudarte mejor."
-                  value={form.descripcion}
-                  onChange={handleChange}
-                />
+                <label className="rform-label" htmlFor="descripcion">Cuéntanos qué buscas</label>
+                <div className="form-group">
+                  <textarea
+                    id="descripcion"
+                    name="descripcion"
+                    placeholder="Fechas aproximadas, número de viajeros, tipo de viaje (luna de miel, familia, aventura...) o cualquier detalle que nos ayude."
+                    value={form.descripcion}
+                    onChange={handleChange}
+                  />
+                </div>
               </div>
 
               <button
                 type="submit"
                 className="btn-whatsapp btn-whatsapp-full"
                 disabled={!filled}
+                style={{ opacity: filled ? 1 : 0.5, cursor: filled ? 'pointer' : 'not-allowed' }}
               >
-                <i className="fab fa-whatsapp" />
-                Enviar por WhatsApp
+                <i className="fab fa-whatsapp"></i> Enviar por WhatsApp
               </button>
 
-              <p className="rform-note">
-                <i className="fas fa-lock" style={{ marginRight: '5px', color: 'var(--primary)' }} />
+              <p style={{ fontSize: '12.5px', color: 'var(--muted)', marginTop: '14px', textAlign: 'center' }}>
+                <i className="fas fa-lock" style={{ marginRight: '5px', color: 'var(--gold)' }}></i>
                 Tus datos son privados y solo se usan para contactarte.
               </p>
             </form>
           </div>
 
-          {/* Info lateral */}
           <div className="reservas-info-box">
             <h3>¿Por qué elegirnos?</h3>
-
-            <div className="reservas-info-item">
-              <div className="rinfo-icon"><i className="fas fa-award" /></div>
-              <div>
+            <div className="rinfo-item">
+              <div className="rinfo-icon"><i className="fas fa-award"></i></div>
+              <div className="rinfo-text">
                 <strong>Más de 20 años de experiencia</strong>
-                <p>Conocemos cada destino y cada detalle que hace un viaje perfecto.</p>
+                <span>Conocemos cada destino y cada detalle que hace un viaje perfecto.</span>
               </div>
             </div>
-
-            <div className="reservas-info-item">
-              <div className="rinfo-icon"><i className="fas fa-headset" /></div>
-              <div>
+            <div className="rinfo-item">
+              <div className="rinfo-icon"><i className="fas fa-headset"></i></div>
+              <div className="rinfo-text">
                 <strong>Atención 100% personalizada</strong>
-                <p>No eres un número. Diseñamos cada viaje a tu medida y tu presupuesto.</p>
+                <span>No eres un número. Diseñamos cada viaje a tu medida y tu presupuesto.</span>
               </div>
             </div>
-
-            <div className="reservas-info-item">
-              <div className="rinfo-icon"><i className="fas fa-shield-alt" /></div>
-              <div>
+            <div className="rinfo-item">
+              <div className="rinfo-icon"><i className="fas fa-shield-alt"></i></div>
+              <div className="rinfo-text">
                 <strong>Registro Nacional de Turismo</strong>
-                <p>RNT No. 29224 — Agencia legalmente constituida en Colombia.</p>
+                <span>RNT No. 29224 — Agencia legalmente constituida en Colombia.</span>
               </div>
             </div>
-
-            <div className="reservas-info-item">
-              <div className="rinfo-icon"><i className="fab fa-whatsapp" /></div>
-              <div>
+            <div className="rinfo-item">
+              <div className="rinfo-icon"><i className="fab fa-whatsapp"></i></div>
+              <div className="rinfo-text">
                 <strong>Respuesta rápida</strong>
-                <p>Te respondemos el mismo día en horario de atención.</p>
+                <span>Te respondemos el mismo día en horario de atención.</span>
               </div>
             </div>
-
           </div>
         </div>
       </section>
 
-      {/* Pasos */}
       <section className="section reservas-pasos-section">
         <div className="container">
-          <h2 className="section-title">¿Cómo funciona?</h2>
+          <div className="section-head">
+            <span className="eyebrow">El proceso</span>
+            <h2>¿Cómo funciona?</h2>
+            <p>Tres pasos sencillos para empezar a planear tu próximo viaje.</p>
+          </div>
           <div className="reservas-pasos-grid">
-            {pasos.map((paso) => (
-              <div className="reservas-paso-card" key={paso.num}>
-                <div className="paso-num">{paso.num}</div>
-                <div className="paso-icon">
-                  <i className={paso.icon} />
-                </div>
-                <h3>{paso.title}</h3>
-                <p>{paso.desc}</p>
+            {pasos.map((p) => (
+              <div className="reservas-paso-card" key={p.num}>
+                <div className="reservas-paso-num">{p.num}</div>
+                <h4>{p.title}</h4>
+                <p>{p.desc}</p>
               </div>
             ))}
           </div>

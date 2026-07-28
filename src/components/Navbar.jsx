@@ -2,47 +2,20 @@ import { useState, useEffect } from 'react'
 import { NavLink, Link, useLocation, useNavigate } from 'react-router-dom'
 
 const BASE = import.meta.env.BASE_URL
-
-const destinos = [
-  { label: 'Suramérica', href: '/#destinos' },
-  { label: 'Europa', href: '/#destinos' },
-  { label: 'Cruceros', href: '/#destinos' },
-  { label: 'Lejano Oriente', href: '/#destinos' },
-  { label: 'África y Exóticos', href: '/#destinos' },
-]
+const WA = 'https://wa.me/573003748933'
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
-  const [destOpen, setDestOpen] = useState(false)
-  const [mobilDestOpen, setMobilDestOpen] = useState(false)
   const location = useLocation()
   const navigate = useNavigate()
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 80)
-    }
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    // Check initial scroll
-    handleScroll()
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  // Close mobile menu on route change
-  useEffect(() => {
     setMenuOpen(false)
-    setMobilDestOpen(false)
   }, [location])
-
-  const toggleMenu = () => setMenuOpen(prev => !prev)
-
-  const isHome = location.pathname === '/'
 
   const handleHashLink = (e, hash) => {
     e.preventDefault()
     setMenuOpen(false)
-    setDestOpen(false)
     const scrollTo = () => {
       const el = document.getElementById(hash)
       if (el) el.scrollIntoView({ behavior: 'smooth' })
@@ -57,149 +30,69 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className={`navbar${(scrolled || !isHome) ? ' scrolled' : ''}`}>
-        <div className="navbar-inner">
-          {/* Logo */}
-          <Link to="/" className="navbar-logo">
+      {/* Top utility bar */}
+      <div className="topbar">
+        <div className="container">
+          <div className="topbar-left">
+            <span><i className="fas fa-phone"></i> +57 300 374 8933</span>
+            <span><i className="fas fa-envelope"></i> turismo.universal.rep@gmail.com</span>
+            <span><i className="fas fa-map-marker-alt"></i> Bogotá, Colombia</span>
+          </div>
+          <div className="topbar-right">
+            <a href="#" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
+            <a href={WA} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i className="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+
+      {/* Main navbar */}
+      <nav className="navbar">
+        <div className="container">
+          <Link to="/" className="logo-brand">
             <img
               src={`${BASE}images/cropped-LOGO-TURISMO-UNIVERSAL-REPRESENTACIONES-S.A.S.-300x105.png`}
               alt="Turismo Universal Representaciones"
-              height="55"
-              style={{ height: '55px', width: 'auto' }}
+              className="logo-img"
             />
           </Link>
 
-          {/* Desktop Nav */}
           <div className="nav-links">
-            <NavLink
-              to="/"
-              end
-              className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}
-            >
-              Inicio
-            </NavLink>
-
-            <NavLink
-              to="/visas"
-              className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}
-            >
-              Visas
-            </NavLink>
-
-            {/* Destinos dropdown */}
-            <div
-              className={`nav-dropdown${destOpen ? ' open' : ''}`}
-              onMouseEnter={() => setDestOpen(true)}
-              onMouseLeave={() => setDestOpen(false)}
-            >
-              <button
-                className="nav-link dropdown-toggle"
-                onClick={() => setDestOpen(prev => !prev)}
-                aria-haspopup="true"
-                aria-expanded={destOpen}
-              >
-                Destinos <i className="fas fa-chevron-down"></i>
-              </button>
-              <div className="dropdown-menu">
-                {destinos.map(d => (
-                  <a
-                    key={d.label}
-                    href="#destinos"
-                    onClick={e => handleHashLink(e, 'destinos')}
-                  >
-                    {d.label}
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            <NavLink
-              to="/reservas"
-              className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}
-            >
-              Reservas
-            </NavLink>
-
-            <NavLink
-              to="/nosotros"
-              className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}
-            >
-              Nosotros
-            </NavLink>
+            <NavLink to="/" end className={({ isActive }) => isActive ? 'active' : ''}>Inicio</NavLink>
+            <a href="#servicios" onClick={e => handleHashLink(e, 'servicios')}>Servicios</a>
+            <a href="#destinos" onClick={e => handleHashLink(e, 'destinos')}>Destinos</a>
+            <NavLink to="/visas" className={({ isActive }) => isActive ? 'active' : ''}>Visas</NavLink>
+            <NavLink to="/nosotros" className={({ isActive }) => isActive ? 'active' : ''}>Nosotros</NavLink>
+            <NavLink to="/reservas" className={({ isActive }) => isActive ? 'active' : ''}>Reservas</NavLink>
           </div>
 
-          {/* Hamburger */}
-          <button
-            className={`hamburger${menuOpen ? ' open' : ''}`}
-            onClick={toggleMenu}
-            aria-label="Abrir menú"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
+          <div className="nav-cta">
+            <a className="nav-wa" href={WA} target="_blank" rel="noopener noreferrer" title="WhatsApp">
+              <i className="fab fa-whatsapp"></i>
+            </a>
+            <a className="btn btn-navy" href="#contacto" onClick={e => handleHashLink(e, 'contacto')}>
+              Habla con un asesor
+            </a>
+            <button
+              className="hamburger"
+              onClick={() => setMenuOpen(v => !v)}
+              aria-label="Abrir menú"
+            >
+              <span></span><span></span><span></span>
+            </button>
+          </div>
+        </div>
+
+        <div className={`mobile-menu${menuOpen ? ' open' : ''}`}>
+          <NavLink to="/" end>Inicio</NavLink>
+          <a href="#servicios" onClick={e => handleHashLink(e, 'servicios')}>Servicios</a>
+          <a href="#destinos" onClick={e => handleHashLink(e, 'destinos')}>Destinos</a>
+          <NavLink to="/visas">Visas</NavLink>
+          <NavLink to="/nosotros">Nosotros</NavLink>
+          <NavLink to="/reservas">Reservas</NavLink>
+          <a href="#contacto" onClick={e => handleHashLink(e, 'contacto')}>Contacto</a>
         </div>
       </nav>
-
-      {/* Mobile overlay */}
-      <div
-        className={`mobile-menu-overlay${menuOpen ? ' open' : ''}`}
-        onClick={toggleMenu}
-      />
-
-      {/* Mobile menu */}
-      <div className={`mobile-menu${menuOpen ? ' open' : ''}`}>
-        <NavLink
-          to="/"
-          end
-          className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}
-        >
-          Inicio
-        </NavLink>
-
-        <NavLink
-          to="/visas"
-          className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}
-        >
-          Visas
-        </NavLink>
-
-        <button
-          className="nav-link"
-          style={{ width: '100%', textAlign: 'left', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
-          onClick={() => setMobilDestOpen(prev => !prev)}
-        >
-          Destinos <i className={`fas fa-chevron-${mobilDestOpen ? 'up' : 'down'}`}></i>
-        </button>
-
-        {mobilDestOpen && (
-          <div className="mobile-dropdown-links">
-            {destinos.map(d => (
-              <a
-                key={d.label}
-                href="#destinos"
-                onClick={e => handleHashLink(e, 'destinos')}
-              >
-                {d.label}
-              </a>
-            ))}
-          </div>
-        )}
-
-        <NavLink
-          to="/reservas"
-          className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}
-        >
-          Reservas
-        </NavLink>
-
-        <NavLink
-          to="/nosotros"
-          className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}
-        >
-          Nosotros
-        </NavLink>
-      </div>
     </>
   )
 }

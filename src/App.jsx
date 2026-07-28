@@ -47,6 +47,15 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      <a
+        className="wa-float"
+        href="https://wa.me/573003748933"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Escríbenos por WhatsApp"
+      >
+        <i className="fab fa-whatsapp"></i>
+      </a>
     </>
   )
 }
