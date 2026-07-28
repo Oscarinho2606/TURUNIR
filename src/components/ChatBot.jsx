@@ -84,7 +84,7 @@ const tree = {
     ],
   },
   pago: {
-    text: 'Aceptamos transferencias bancarias, consignaciones, tarjetas de crédito (según servicio) y pago en oficina. Al confirmar la reserva se solicita un depósito inicial y el saldo restante se cancela en los plazos indicados en la cotización.',
+    text: 'Los pagos se realizan por transferencia bancaria o consignación (no atendemos público en oficina). Al confirmar la reserva se solicita un depósito inicial y el saldo restante se cancela en los plazos indicados en la cotización.',
     options: [
       { label: 'Políticas de cancelación', next: 'cancelacion' },
       { label: 'Hablar con un asesor', escalate: true },
