@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 
-const BASE = import.meta.env.BASE_URL
 const WA = 'https://wa.me/573003748933'
 
 const services = [

@@ -1,5 +1,3 @@
-const BASE = import.meta.env.BASE_URL
-
 export const destinosData = [
   {
     slug: 'cruceros',
@@ -325,7 +323,7 @@ export const destinosData = [
   },
   {
     slug: 'disney',
-    img: `${BASE}images/promo-exclusica-disney.png`,
+    img: 'https://images.unsplash.com/photo-1597466599360-3b9775841aec?q=80&w=1600&auto=format&fit=crop',
     title: 'Disney & Orlando',
     tagline: 'El lugar donde los sueños se hacen realidad para toda la familia',
     cat: 'suramerica',
