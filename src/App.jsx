@@ -9,6 +9,7 @@ import Sostenibilidad from './pages/Sostenibilidad.jsx'
 import Clausulas from './pages/Clausulas.jsx'
 import Destino from './pages/Destino.jsx'
 import Visas from './pages/Visas.jsx'
+import ChatBot from './components/ChatBot.jsx'
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation()
@@ -47,15 +48,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
-      <a
-        className="wa-float"
-        href="https://wa.me/573003748933"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Escríbenos por WhatsApp"
-      >
-        <i className="fab fa-whatsapp"></i>
-      </a>
+      <ChatBot />
     </>
   )
 }
