@@ -14,21 +14,20 @@ const services = [
 ]
 
 const destinos = [
-  { img: `${BASE}images/cruceros.png`, title: 'Cruceros', cat: 'cruceros', slug: 'cruceros' },
-  { img: `${BASE}images/europa-turismo-universal.png`, title: 'Europa', cat: 'europa', slug: 'europa' },
-  { img: `${BASE}images/siente-vietnam.png`, title: 'Vietnam', cat: 'exoticos', slug: 'vietnam' },
-  { img: `${BASE}images/siente-dubai.png`, title: 'Dubai', cat: 'exoticos', slug: 'dubai' },
-  { img: `${BASE}images/siente-jordania.png`, title: 'Jordania', cat: 'exoticos', slug: 'jordania' },
-  { img: `${BASE}images/siente-turquia.png`, title: 'Turquía', cat: 'exoticos', slug: 'turquia' },
-  { img: `${BASE}images/siente-china.png`, title: 'China', cat: 'exoticos', slug: 'china' },
-  { img: `${BASE}images/siente-japon.png`, title: 'Japón', cat: 'exoticos', slug: 'japon' },
-  { img: `${BASE}images/siente-india.png`, title: 'India', cat: 'exoticos', slug: 'india' },
-  { img: `${BASE}images/siente-kenia.png`, title: 'Kenia', cat: 'exoticos', slug: 'kenia' },
-  { img: `${BASE}images/siente-tailandia.png`, title: 'Tailandia', cat: 'exoticos', slug: 'tailandia' },
-  { img: `${BASE}images/buenos-aires-mar-de-plata.png`, title: 'Buenos Aires', cat: 'suramerica', slug: 'buenos-aires' },
-  { img: `${BASE}images/lima-aventurera-plan.png`, title: 'Lima Aventurera', cat: 'suramerica', slug: 'lima-aventurera' },
-  { img: `${BASE}images/lima-experiencia-turunir.png`, title: 'Lima Experiencia', cat: 'suramerica', slug: 'lima-experiencia' },
-  { img: `${BASE}images/promo-exclusica-disney.png`, title: 'Disney Orlando', cat: 'suramerica', slug: 'disney' },
+  { img: 'https://images.unsplash.com/photo-1548574505-5e239809ee19?q=80&w=800&auto=format&fit=crop', title: 'Cruceros', cat: 'cruceros', slug: 'cruceros' },
+  { img: 'https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=800&auto=format&fit=crop', title: 'Europa', cat: 'europa', slug: 'europa' },
+  { img: 'https://images.unsplash.com/photo-1528127269322-539801943592?q=80&w=800&auto=format&fit=crop', title: 'Vietnam', cat: 'exoticos', slug: 'vietnam' },
+  { img: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=800&auto=format&fit=crop', title: 'Dubái', cat: 'exoticos', slug: 'dubai' },
+  { img: 'https://images.unsplash.com/photo-1548786811-dd6e453ccca7?q=80&w=800&auto=format&fit=crop', title: 'Jordania', cat: 'exoticos', slug: 'jordania' },
+  { img: 'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=800&auto=format&fit=crop', title: 'Turquía', cat: 'exoticos', slug: 'turquia' },
+  { img: 'https://images.unsplash.com/photo-1508804185872-d7badad00f7d?q=80&w=800&auto=format&fit=crop', title: 'China', cat: 'exoticos', slug: 'china' },
+  { img: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=800&auto=format&fit=crop', title: 'Japón', cat: 'exoticos', slug: 'japon' },
+  { img: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=800&auto=format&fit=crop', title: 'India', cat: 'exoticos', slug: 'india' },
+  { img: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=800&auto=format&fit=crop', title: 'Kenia', cat: 'exoticos', slug: 'kenia' },
+  { img: 'https://images.unsplash.com/photo-1528181304800-259b08848526?q=80&w=800&auto=format&fit=crop', title: 'Tailandia', cat: 'exoticos', slug: 'tailandia' },
+  { img: 'https://images.unsplash.com/photo-1589909202802-8f4aadce1849?q=80&w=800&auto=format&fit=crop', title: 'Buenos Aires', cat: 'suramerica', slug: 'buenos-aires' },
+  { img: 'https://images.unsplash.com/photo-1531968455001-5c5272a41129?q=80&w=800&auto=format&fit=crop', title: 'Lima Aventurera', cat: 'suramerica', slug: 'lima-aventurera' },
+  { img: 'https://images.unsplash.com/photo-1526392060635-9d6019884377?q=80&w=800&auto=format&fit=crop', title: 'Lima Experiencia', cat: 'suramerica', slug: 'lima-experiencia' },
 ]
 
 const filters = [

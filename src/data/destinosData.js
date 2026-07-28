@@ -3,7 +3,7 @@ const BASE = import.meta.env.BASE_URL
 export const destinosData = [
   {
     slug: 'cruceros',
-    img: `${BASE}images/cruceros.png`,
+    img: 'https://images.unsplash.com/photo-1548574505-5e239809ee19?q=80&w=1600&auto=format&fit=crop',
     title: 'Cruceros por el Mundo',
     tagline: 'Despierta cada día frente a un horizonte diferente',
     cat: 'cruceros',
@@ -26,7 +26,7 @@ export const destinosData = [
   },
   {
     slug: 'europa',
-    img: `${BASE}images/europa-turismo-universal.png`,
+    img: 'https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=1600&auto=format&fit=crop',
     title: 'Europa',
     tagline: 'Miles de años de historia, arte y belleza en cada rincón',
     cat: 'europa',
@@ -49,7 +49,7 @@ export const destinosData = [
   },
   {
     slug: 'vietnam',
-    img: `${BASE}images/siente-vietnam.png`,
+    img: 'https://images.unsplash.com/photo-1528127269322-539801943592?q=80&w=1600&auto=format&fit=crop',
     title: 'Vietnam',
     tagline: 'Un país que se graba en el alma para siempre',
     cat: 'exoticos',
@@ -72,7 +72,7 @@ export const destinosData = [
   },
   {
     slug: 'dubai',
-    img: `${BASE}images/siente-dubai.png`,
+    img: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1600&auto=format&fit=crop',
     title: 'Dubai',
     tagline: 'El futuro ya llegó y tiene la forma de Dubai',
     cat: 'exoticos',
@@ -95,7 +95,7 @@ export const destinosData = [
   },
   {
     slug: 'jordania',
-    img: `${BASE}images/siente-jordania.png`,
+    img: 'https://images.unsplash.com/photo-1548786811-dd6e453ccca7?q=80&w=1600&auto=format&fit=crop',
     title: 'Jordania',
     tagline: 'La maravilla del mundo que te dejará sin palabras',
     cat: 'exoticos',
@@ -118,7 +118,7 @@ export const destinosData = [
   },
   {
     slug: 'turquia',
-    img: `${BASE}images/siente-turquia.png`,
+    img: 'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1600&auto=format&fit=crop',
     title: 'Turquía',
     tagline: 'El puente entre dos mundos, una sola maravilla',
     cat: 'exoticos',
@@ -141,7 +141,7 @@ export const destinosData = [
   },
   {
     slug: 'china',
-    img: `${BASE}images/siente-china.png`,
+    img: 'https://images.unsplash.com/photo-1508804185872-d7badad00f7d?q=80&w=1600&auto=format&fit=crop',
     title: 'China',
     tagline: '5.000 años de civilización que te esperan',
     cat: 'exoticos',
@@ -164,7 +164,7 @@ export const destinosData = [
   },
   {
     slug: 'japon',
-    img: `${BASE}images/siente-japon.png`,
+    img: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1600&auto=format&fit=crop',
     title: 'Japón',
     tagline: 'Donde la tradición y el futuro conviven en perfecta armonía',
     cat: 'exoticos',
@@ -187,7 +187,7 @@ export const destinosData = [
   },
   {
     slug: 'india',
-    img: `${BASE}images/siente-india.png`,
+    img: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=1600&auto=format&fit=crop',
     title: 'India',
     tagline: 'Un universo de colores, esencias y espiritualidad',
     cat: 'exoticos',
@@ -210,7 +210,7 @@ export const destinosData = [
   },
   {
     slug: 'kenia',
-    img: `${BASE}images/siente-kenia.png`,
+    img: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=1600&auto=format&fit=crop',
     title: 'Kenia',
     tagline: 'La naturaleza africana en su estado más puro y majestuoso',
     cat: 'exoticos',
@@ -233,7 +233,7 @@ export const destinosData = [
   },
   {
     slug: 'tailandia',
-    img: `${BASE}images/siente-tailandia.png`,
+    img: 'https://images.unsplash.com/photo-1528181304800-259b08848526?q=80&w=1600&auto=format&fit=crop',
     title: 'Tailandia',
     tagline: 'La Tierra de las Sonrisas que roban el corazón',
     cat: 'exoticos',
@@ -256,7 +256,7 @@ export const destinosData = [
   },
   {
     slug: 'buenos-aires',
-    img: `${BASE}images/buenos-aires-mar-de-plata.png`,
+    img: 'https://images.unsplash.com/photo-1589909202802-8f4aadce1849?q=80&w=1600&auto=format&fit=crop',
     title: 'Buenos Aires',
     tagline: 'El París de Suramérica te espera con los brazos abiertos',
     cat: 'suramerica',
@@ -279,7 +279,7 @@ export const destinosData = [
   },
   {
     slug: 'lima-aventurera',
-    img: `${BASE}images/lima-aventurera-plan.png`,
+    img: 'https://images.unsplash.com/photo-1531968455001-5c5272a41129?q=80&w=1600&auto=format&fit=crop',
     title: 'Lima Aventurera',
     tagline: 'Adrenalina, historia y magia en el corazón de los Andes',
     cat: 'suramerica',
@@ -302,7 +302,7 @@ export const destinosData = [
   },
   {
     slug: 'lima-experiencia',
-    img: `${BASE}images/lima-experiencia-turunir.png`,
+    img: 'https://images.unsplash.com/photo-1526392060635-9d6019884377?q=80&w=1600&auto=format&fit=crop',
     title: 'Lima Experiencia',
     tagline: 'La capital gastronómica del mundo te invita a su mesa',
     cat: 'suramerica',
